@@ -3,22 +3,24 @@ from assistant import *
 import time
 
 
-with st.sidebar:
-    # st.write("Vector store ID:", vector_store_id)
-# st.write("Assistant ID:", assistant_id)
-    assistant_id = st.text_input(
-        "Provide your own assistant",
-        "asst_iRAB8xpx9HNqn0EcCupWCLkP",
-        key="assistant",
-    )
+# with st.sidebar:
+#     assistant_id = st.text_input(
+#         "Provide your own assistant",
+#         "asst_iRAB8xpx9HNqn0EcCupWCLkP",
+#         key="assistant",
+#     )
 
-    vector_store_id = st.text_input(
-        "Provide your own vector store",
-        "vs_skv7WVmYFuKulAGhceWzY0Vu",
-        key="vectorstore",
-    )
+#     vector_store_id = st.text_input(
+#         "Provide your own vector store",
+#         "vs_skv7WVmYFuKulAGhceWzY0Vu",
+#         key="vectorstore",
+#     )
 
+st.logo('images/fieldkoicon.png', icon_image='images/fieldkoicon.png')
 st.title("Copilot Assistant")
+
+assistant_id = st.secrets["assistant_id"]
+vector_store_id = st.secrets["vestor_store_id"]
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
